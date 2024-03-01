@@ -1,0 +1,18 @@
+services:
+  ros:
+    image: mcr.microsoft.com/vscode/devcontainers/cpp:ubuntu-20.04
+    stdin_open: true
+    tty: true
+    build:
+      dockerfile: Dockerfile
+    # Set up dislay
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw # for display
+      - $HOME:$HOME:rw # optional mount home directory
+      - /dev/dri:/dev/dri # In order for graphics to work
+    
+      
+
